@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Test Tech'),
+        title: const Center(child:Text('Test Tech')),
       ),
       body: 
         const NumeroRomano(),

@@ -34,55 +34,58 @@ class _NumeroRomanoState extends State<NumeroRomano> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Container(
-      width: 300,
-      height: 300,
-      decoration:
-          BoxDecoration(border: Border.all(width: 1, color: Colors.black)),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox(
-            width: 200,
-            height: 40,
-            child: TextFormField(
-              controller: _romano,
-              onChanged: (value) => {romanoToarabico(value)},
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Número Romano',
+    return Center(
+      child: Container(
+        width: 300,
+        height: 300,
+        decoration:
+            BoxDecoration(border: Border.all(width: 1, color: Colors.black)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 200,
+              height: 40,
+              child: TextFormField(
+                controller: _romano,
+                onChanged: (value) => {romanoToArabico(value)},
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Número Romano',
+                ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-            child:Text('Valor Arabico: $numeroRetornoArabico'),),
-          SizedBox(
-            width: 200,
-            height: 40,
-            child: TextFormField(
-              controller: _arabico,
-              onChanged: (value) => {arabicoToromano(value)},
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Número Arabico',
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+              child: Text('Valor Arabico: $numeroRetornoArabico'),
+            ),
+            SizedBox(
+              width: 200,
+              height: 40,
+              child: TextFormField(
+                controller: _arabico,
+                onChanged: (value) => {arabicoToRomano(value)},
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Número Arabico',
+                ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-            child: Text('Valor Romano: $numeroRetornoRomano'),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+              child: Text('Valor Romano: $numeroRetornoRomano'),
+            ),
+          ],
+        ),
       ),
-    ), );
+    );
   }
 
-  romanoToarabico(value) {
+  romanoToArabico(value) {
     if (_romano.text.isEmpty) {
       setState(() {
-        numeroRetornoRomano = '';
+        numeroRetornoArabico = '';
       });
       return;
     }
@@ -129,7 +132,7 @@ class _NumeroRomanoState extends State<NumeroRomano> {
     });
   }
 
-  arabicoToromano(value) {
+  arabicoToRomano(value) {
     if (_arabico.text.isEmpty) {
       setState(() {
         numeroRetornoRomano = '';
